@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1: A Vision Language Action Model</title>
+    <!-- Updated: Performance table task names - Force rebuild -->
+    <meta name="description" content="$\mathcal{F}_1$: A Vision Language Action Model Bridging Understanding and Generation to Actions">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="$\mathcal{F}_1$ Logo" width="40" height="30">
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#framework">Framework</a>
+                <a href="#demo">Demo</a>
+                <a href="#performance">Performance</a>
+                <a href="#citation">Citation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-robot"></i>
+                    Embodied AI Research
+                </div>
+                <h1 class="hero-title">
+                    <span class="math-symbol">\(\mathcal{F}_1\)</span>: A Vision Language Action Model Bridging Understanding and Generation to Actions
+                </h1>
+                <p class="hero-description">
+                    Operating in dynamic environments requires anticipating future changes.
+                    For instance, filming Formula 1 racing demands predicting the car’s next position to capture it effectively.
+                    We introduce $\mathcal{F}_1$, a novel paradigm integrating visual foresight generation into the decision-making pipeline and enables robots to plan and execute complex tasks in dynamic environments via predictive inverse dynamics.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/aopolin-lv/F1-VLA" class="btn btn-primary">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <a href="https://arxiv.org/abs/xxxx.xxxxx" class="btn btn-outline">
+                        <i class="fas fa-file-pdf"></i> Read Paper
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <i class="fas fa-play"></i> Watch Demo
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-container">
+                    <div class="demo-video">
+                        <video id="main-video" controls autoplay muted loop>
+                            <source src="assets/demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play"></i>
+                            <span>Best viewed with sound on</span>
+                        </div>
+                    </div>
+                    <div class="research-highlights">
+                        <h3 class="highlights-title">Research Highlights</h3>
+                        <div class="highlight-list">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Visual Foresight</h4>
+                                    <p>Predictive inverse dynamics modeling for planning-based control</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Mixture-of-Transformer</h4>
+                                    <p>Three specialized experts for understanding, generation, and action</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Progressive Training</h4>
+                                    <p>Three-stage alignment, pretraining, and adaptation strategy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Overview -->
+    <section id="framework" class="framework">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-puzzle-piece section-icon"></i>
+                Framework Overview
+            </h2>
+            
+            <!-- Paradigm Comparison -->
+                <div class="paradigm-section">
+                    <h3 class="subsection-title">VLA Paradigm Evolution</h3>
+                <div class="paradigm-figure">
+                    <img src="assets/fig1_VLA_paradiagm.png" alt="VLA Paradigm Comparison" class="paradigm-image">
+                    <div class="figure-caption">
+                        <strong>Comparison of VLA paradigms.</strong> (a) Early end-to-end policies like <a href="https://arxiv.org/abs/2304.13705" target="_blank">ACT</a> and <a href="https://arxiv.org/abs/2303.04137" target="_blank">DP</a> lack semantic grounding. 
+                        (b) VLM-integrated policies like <a href="https://arxiv.org/abs/2410.24164v1" target="_blank">$\pi_0$</a> and <a href="https://arxiv.org/abs/2503.14734" target="_blank">gr00t-N1</a> enhance understanding but remain reactive. 
+                        (c) Visual prediction-based policies like <a href="https://arxiv.org/abs/2412.14803" target="_blank">VPP</a> and <a href="https://arxiv.org/abs/2508.05635" target="_blank">Genie Envisioner</a> anticipate future states but lack semantic grounding. 
+                        (d) Our $\mathcal{F}_1$ framework integrates understanding, generation, and execution for robust foresight-driven control.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture Overview -->
+            <div class="architecture-section">
+                <h3 class="subsection-title">$\mathcal{F}_1$ Architecture</h3>
+                <div class="architecture-figure">
+                    <img src="assets/fig2_F1_architecture.png" alt="$\mathcal{F}_1$ Architecture" class="architecture-image">
+                    <div class="figure-caption">
+                        <strong>$\mathcal{F}_1$ framework overview.</strong> The Mixture-of-Transformer architecture comprises three core components: 
+                        an understanding expert, a generation expert, and an action expert. The understanding expert processes instructions 
+                        and observations to generate a foresight image, which is then fed to the action expert for predictive inverse dynamics modeling.
+                    </div>
+                </div>
+                
+                <div class="experts-overview">
+                    <ul class="experts-simple-list">
+                        <li><span class="expert-emoji">🧠</span> <strong>Understanding Expert:</strong> Processes natural language instructions and visual observations to establish shared multimodal representations, leveraging pretrained vision-language knowledge for robust semantic grounding.</li>
+                        <li><span class="expert-emoji">🔮</span> <strong>Generation Expert:</strong> Employs next-scale prediction mechanism to synthesize goal-conditioned visual foresight, providing explicit planning targets that guide subsequent action execution.</li>
+                        <li><span class="expert-emoji">🤖</span> <strong>Action Expert:</strong> Implements predictive inverse dynamics modeling to map multimodal context into executable robot actions, incorporating foresight for goal-directed and temporally consistent behavior.</li>
+                    </ul>
+                </div>
+
+                <!-- Training Recipe -->
+                <div class="training-recipe">
+                    <h3 class="subsection-title">Three-Stage Training Recipe</h3>
+                    <div class="recipe-stages">
+                        <div class="recipe-stage-item">
+                            <div class="stage-indicator">1</div>
+                            <div class="stage-info">
+                                <h4>Pretrain Stage I</h4>
+                                <p>Make the generation expert align with the understanding expert and obtain the capability of generating visual foresight images.</p>
+                            </div>
+                        </div>
+                        <div class="stage-connector">→</div>
+                        <div class="recipe-stage-item">
+                            <div class="stage-indicator">2</div>
+                            <div class="stage-info">
+                                <h4>Pretrain Stage II</h4>
+                                <p>Joint training of all three experts with large-scale vision-language-action datasets to obtain the capability of understanding, generation, and action.</p>
+                            </div>
+                        </div>
+                        <div class="stage-connector">→</div>
+                        <div class="recipe-stage-item">
+                            <div class="stage-indicator">3</div>
+                            <div class="stage-info">
+                                <h4>Post-train Stage</h4>
+                                <p>Finetuning on specific robot platforms with domain-specific data and tasks to obtain the capability of executing actions in downstream environments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="demo-container">
+            <h2 class="section-title">
+                <i class="fas fa-vial section-icon"></i>
+                Real-World Robot Experiments
+            </h2>
+            <div class="demo-grid">
+                <!-- Genie-1 Experiments -->
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video controls autoplay muted loop>
+                            <source src="assets/genie/genie_v1_flower.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Flower</h3>
+                        <p>Precise flower manipulation on Genie-1 platform</p>
+                        <div class="performance-badge">Genie-1</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video controls autoplay muted loop>
+                            <source src="assets/genie/genie_v2_handover.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Handover (R2H)</h3>
+                        <p>Safe object transfer between robot and human</p>
+                        <div class="performance-badge">Genie-1</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video controls autoplay muted loop>
+                            <source src="assets/genie/genie_v3_tea.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Tea (Shelf)</h3>
+                        <p>Tea cup manipulation from shelf to table</p>
+                        <div class="performance-badge">Genie-1</div>
+                    </div>
+                </div>
+                
+                <!-- ARX LIFT II Experiments -->
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video controls autoplay muted loop>
+                            <source src="assets/arx/arx_v2_long.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Long-horizon</h3>
+                        <p>10-step sequential manipulation task execution</p>
+                        <div class="performance-badge">ARX LIFT II</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video controls autoplay muted loop>
+                            <source src="assets/arx/arx_v1_dyna.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Dynamic Environment</h3>
+                        <p>Real-time tracking of moving objects on conveyor belt</p>
+                        <div class="performance-badge">ARX LIFT II</div>
+                    </div>
+                </div>
+                <!-- Franka Experiment -->
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video controls autoplay muted loop>
+                            <source src="assets/franka/franka_v1_sweep.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Sweep</h3>
+                        <p>Rapid adaptation for cleaning and organization tasks</p>
+                        <div class="performance-badge">Franka</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="performance">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-trophy section-icon"></i>
+                Performance Highlights
+            </h2>
+            <div class="performance-grid">
+                <div class="performance-card">
+                    <h3>Real-World Tasks (Genie-1)</h3>
+                    <div class="performance-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>$\mathcal{F}_1$</th>
+                                    <th>$\pi_0$</th>
+                                    <th>Improvement</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Flower</td>
+                                    <td>80.0%</td>
+                                    <td>66.7%</td>
+                                    <td class="improvement">+13.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>Handover (R2H)</td>
+                                    <td>73.3%</td>
+                                    <td>40.0%</td>
+                                    <td class="improvement">+33.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>Tea (Shelf)</td>
+                                    <td>86.7%</td>
+                                    <td>73.3%</td>
+                                    <td class="improvement">+13.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Average</td>
+                                    <td>80.0%</td>
+                                    <td>60.0%</td>
+                                    <td class="improvement">+20.0%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="performance-card">
+                    <h3>Dynamic Environments</h3>
+                    <div class="performance-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Platform</th>
+                                    <th>$\mathcal{F}_1$</th>
+                                    <th>$\pi_0$</th>
+                                    <th>Improvement</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Long-horizon</td>
+                                    <td>ARX LIFT II</td>
+                                    <td>40.0%</td>
+                                    <td>0.0%</td>
+                                    <td class="improvement">+40.0%</td>
+                                </tr>
+                                <tr>
+                                    <td>Dynamic Env</td>
+                                    <td>ARX LIFT II</td>
+                                    <td>66.7%</td>
+                                    <td>33.3%</td>
+                                    <td class="improvement">+33.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Adaptation</td>
+                                    <td>Franka</td>
+                                    <td>66.7%</td>
+                                    <td>53.3%</td>
+                                    <td class="improvement">+13.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Average</td>
+                                    <td>All</td>
+                                    <td>57.8%</td>
+                                    <td>28.9%</td>
+                                    <td class="improvement">+28.9%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Citation Section -->
+    <section id="citation" class="citation">
+        <div class="container">
+            <h2 class="section-title">Citation</h2>
+            <div class="citation-content">
+                <div class="citation-text">
+                    <pre><code>@article{f1_vla_2025,
+  title={$\mathcal{F}_1$: A Vision Language Action Model Bridging Understanding and Generation to Actions},
+  author={Qi Lv and Weijie Kong and Hao Li and Jia Zeng and Zherui Qiu and Delin Qu and Haoming Song and Qizhi Chen and Xiang Deng and Michael Yu Wang and Liqiang Nie and Jiangmiao Pang},
+  journal={Conference/Journal Name},
+  year={2025},
+  url={https://arxiv.org/abs/xxxx.xxxxx}
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>$F_1$: A Vision Language Action Model<br>
+                    Bridging Understanding and Generation<br>
+                    to Actions</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <a href="https://github.com/aopolin-lv/F1-VLA">GitHub Repository</a>
+                        <a href="https://arxiv.org/abs/xxxx.xxxxx">arXiv Paper</a>
+                        <a href="#demo">Video Demos</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p>Intern Robotics, Shanghai AI Laboratory</p>
+                        <p>Harbin Institute of Technology (Shenzhen)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 $\mathcal{F}_1$ Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

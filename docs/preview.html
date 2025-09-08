@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F₁ Preview - Local Development</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .preview-notice {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .preview-notice h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: 'Monaco', monospace;
+            margin: 15px 0;
+        }
+        .steps {
+            background: #f9f9f9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .warning {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-notice">
+        <h3>🔍 Local Preview Mode</h3>
+        <p>This is a preview of your F₁ website. Some features may not work properly in local preview mode:</p>
+        <ul>
+            <li>✅ Static content and layout</li>
+            <li>✅ Responsive design</li>
+            <li>❌ Video playback (requires web server)</li>
+            <li>❌ Smooth scrolling (may not work in file:// protocol)</li>
+        </ul>
+    </div>
+
+    <h1>🚀 F₁: A Vision Language Action Model</h1>
+
+    <div class="steps">
+        <h3>📋 Quick Setup Guide</h3>
+        <ol>
+            <li><strong>Upload to GitHub:</strong> Push your code to a GitHub repository</li>
+            <li><strong>Enable Pages:</strong> Go to Settings → Pages → Source: "Deploy from a branch"</li>
+            <li><strong>Select Branch:</strong> Choose "main" branch and "/docs" folder</li>
+            <li><strong>Access Site:</strong> Your site will be at https://yourusername.github.io/repository-name</li>
+        </ol>
+    </div>
+
+    <div class="code-block">
+        <strong>Terminal Commands:</strong><br><br>
+        # 1. Make sure you're in the project root<br>
+        cd /path/to/your/F1-VLA<br><br>
+        # 2. Run deployment script<br>
+        ./deploy-pages.sh<br><br>
+        # 3. Or manually push to GitHub<br>
+        git add .<br>
+        git commit -m "Deploy website"<br>
+        git push origin main
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ Important Notes:</strong>
+        <ul>
+            <li>GitHub Pages may take 2-3 minutes to deploy</li>
+            <li>Custom domain setup requires additional configuration</li>
+            <li>Large video files may need Git LFS for storage</li>
+            <li>HTTPS is automatically enabled on GitHub Pages</li>
+        </ul>
+    </div>
+
+    <div class="steps">
+        <h3>🔧 Local Development</h3>
+        <p>To preview with full functionality locally:</p>
+        <div class="code-block">
+        # Using Python (recommended)<br>
+        cd docs<br>
+        python -m http.server 8000<br><br>
+        # Or using Node.js<br>
+        npx http-server docs -p 8000<br><br>
+        # Then visit: http://localhost:8000
+        </div>
+    </div>
+
+    <hr>
+
+    <p style="text-align: center; color: #666;">
+        <strong>F₁ Team</strong> | Shanghai AI Laboratory | Harbin Institute of Technology (Shenzhen) | Great Bay University
+    </p>
+
+    <script>
+        // Add some basic interactivity to the preview
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🌐 F₁ Preview Page Loaded');
+            console.log('📁 Current directory structure should include:');
+            console.log('   ├── index.html (main site)');
+            console.log('   ├── style.css');
+            console.log('   ├── script.js');
+            console.log('   └── assets/ (logo, videos)');
+        });
+    </script>
+</body>
+</html>
