@@ -19,7 +19,7 @@
 We introduce $\mathcal{F}_1$, a novel paradigm by integrating **visual foresight generation** into the decision-making pipeline. Our model employs a Mixture-of-Transformer architecture with dedicated modules for perception, foresight generation, and control, thereby bridging understanding, generation, and actions through **predictive inverse dynamics modeling**.
 
 <div align="center">
-  <video src="https://cdn-uploads.huggingface.co/production/uploads/678123194248fde89e4fc9bf/_cbIWKHPzffRxIpfmqdFG.mp4"
+  <video src="https://github.com/user-attachments/assets/7d24ac5f-e8fa-4609-8731-2f36b64a9005"
          controls autoplay muted playsinline loop width="720"></video>
   
   <p><em>🏁 Best viewed with sound on</em></p>
@@ -36,28 +36,28 @@ We introduce $\mathcal{F}_1$, a novel paradigm by integrating **visual foresight
 
 ### **Multi-task Manipulation**
 <div align="center">
-    <video src="https://cdn-uploads.huggingface.co/production/uploads/678123194248fde89e4fc9bf/FPZ45NJd9_B_T1gOP8QVf.qt"
+    <video src="https://github.com/user-attachments/assets/047ebb04-6dcf-4555-abbc-ecdec6f47527"
          controls autoplay muted playsinline loop width="720"></video>
   <p><em>9 diverse manipulation tasks including pick-and-place, handover, and complex object manipulation</em></p>
 </div>
 
 ### **Rapid Adaptation**
 <div align="center">
-    <video src="https://github.com/user-attachments/assets/c893af97-03aa-4b32-97b1-729e6e77d980"
+    <video src="https://github.com/user-attachments/assets/61eb62fc-5d2f-412d-9b23-9a7f97d5c37b"
          controls autoplay muted playsinline loop width="720"></video>
   <p><em>Sweep and sort tasks demonstrating rapid embodiment adaptation capabilities</em></p>
 </div>
 
 ### **Long-horizon Planning**
 <div align="center">
-      <video src="https://github.com/user-attachments/assets/933f58ea-3239-4834-9b5b-8fa6bd5a1803"
+      <video src="https://github.com/user-attachments/assets/93a5bce0-7a90-4a6c-9447-7d0885778775"
          controls autoplay muted playsinline loop width="500"></video>
   <p><em>10-step sequential task over 2 minutes, showcasing long-term planning and execution</em></p>
 </div>
 
 ### **Dynamic Environment**
 <div align="center">
-    <video src="https://github.com/user-attachments/assets/c1dde17f-0510-46e7-a828-94cd1a225834"
+    <video src="https://github.com/user-attachments/assets/89a804a0-7a4a-4df0-a284-4a072a8e720d"
          controls autoplay muted playsinline loop width="500"></video>
   <p><em>Moving conveyor belt manipulation, demonstrating dynamic scene handling capabilities</em></p>
 </div>
